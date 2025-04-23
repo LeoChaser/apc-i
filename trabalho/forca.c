@@ -2,9 +2,11 @@
 #include <time.h>
 #include <stdio.h>
 #include <conio.h>
+#include <string.h>
 #else
 #include <time.h>
 #include <stdio.h>
+#include <string.h>
 #define clrscr() printf("\e[1;1H\e[2J")
 #endif
 
@@ -55,21 +57,31 @@ int main() {
         while (jogar) {
             clrscr();
             printf("====================================== FORCA ======================================\n");
-            char nome[20];
-            printf("Digite seu primeiro nome:\n");
-            scanf("%[^\n]s", nome);
-            getchar();
+            char nome[20] = "nometeste";
+
+            do {
+                printf("Digite seu primeiro nome:\n");
+                scanf("%[^\n]s", nome);
+                getchar();
+            } while (strcmp(nome, "nometeste") == 0);
             printf("Bem-vindo, %s!\n", nome);
-            int dia, mes, ano;
-            printf("Que dia voce nasceu? Digite dois digitos: \n");
-            scanf("%i", &dia);
-            getchar();
-            printf("Que mes voce nasceu? Digite dois digitos: \n");
-            scanf("%i", &mes);
-            getchar();
-            printf("Que ano voce nasceu? Digite quatro digitos: \n");
-            scanf("%i", &ano);
-            getchar();
+            
+            int dia = 99, mes = 99, ano = 9999;
+            do {
+                printf("Que dia voce nasceu? Digite dois digitos: \n");
+                scanf("%i", &dia);
+                getchar();
+            } while (dia < 1 || dia > 31);
+            do{
+                printf("Que mes voce nasceu? Digite dois digitos: \n");
+                scanf("%i", &mes);
+                getchar();
+            } while (mes < 1 || mes > 12);
+            do {
+                printf("Que ano voce nasceu? Digite quatro digitos: \n");
+                scanf("%i", &ano);
+                getchar();
+            } while (ano < 1111 || ano > 2025);
 
             short int menu_dificuldade = 1;
             while (menu_dificuldade) {
@@ -127,7 +139,6 @@ int main() {
             clrscr();
             while (vivo) {
                 char chute;
-                // error: variable-sized object may not be initialized except with an empty initializer
                 char chutes[max_erros];
                 if (acertos < tamanho_palavra) {
                     printf("====================================== FORCA ======================================\n");
@@ -250,6 +261,7 @@ int main() {
                     quant_chutes = 0;
                     clrscr();
                     printf("====================================== FORCA ======================================\n");
+                    // procurar fflush fpurge
                     // tá mostrando o nomeeeeeeeeeeeeeee
                     printf("                   A resposta esta certa: %s!\n\n", palavra);
                     printf("                       =============================\n");

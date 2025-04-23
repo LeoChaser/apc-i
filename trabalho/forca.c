@@ -33,6 +33,7 @@ int main() {
         printf("0 para encerrar.\n");
         scanf("%[^\n]c", &opcao_menu_principal);
         getchar();
+        fflush(stdin);
 
         switch (opcao_menu_principal) {
             case '1':
@@ -42,6 +43,7 @@ int main() {
             case '0':
                 printf("Tem certeza que deseja encerrar? S/N\n");
                 scanf("%[^\n]c", &opcao_sair);
+                fflush(stdin);
                 if (opcao_sair == 's' || opcao_sair == 'S') {
                     menu_principal = 0;
                     jogar = 0;
@@ -63,6 +65,7 @@ int main() {
                 printf("Digite seu primeiro nome:\n");
                 scanf("%[^\n]s", nome);
                 getchar();
+                fflush(stdin);
             } while (strcmp(nome, "nometeste") == 0);
             printf("Bem-vindo, %s!\n", nome);
             
@@ -71,16 +74,19 @@ int main() {
                 printf("Que dia voce nasceu? Digite dois digitos: \n");
                 scanf("%i", &dia);
                 getchar();
+                fflush(stdin);
             } while (dia < 1 || dia > 31);
             do{
                 printf("Que mes voce nasceu? Digite dois digitos: \n");
                 scanf("%i", &mes);
                 getchar();
+                fflush(stdin);
             } while (mes < 1 || mes > 12);
             do {
                 printf("Que ano voce nasceu? Digite quatro digitos: \n");
                 scanf("%i", &ano);
                 getchar();
+                fflush(stdin);
             } while (ano < 1111 || ano > 2025);
 
             short int menu_dificuldade = 1;
@@ -95,6 +101,7 @@ int main() {
 
                 scanf("%[^\n]c", &dificuldade);
                 getchar();
+                fflush(stdin);
                 switch (dificuldade) {
                     case '1':
                         menu_dificuldade = 0;
@@ -108,6 +115,7 @@ int main() {
                     case '0':
                         printf("Tem certeza que deseja encerrar? S/N\n");
                         scanf("%[^\n]c", &opcao_sair);
+                        fflush(stdin);
                         if (opcao_sair == 's' || opcao_sair == 'S') {
                             menu_dificuldade = 0;
                             jogar = 0;
@@ -193,15 +201,23 @@ int main() {
 
                     scanf("%c", &chute);
                     getchar();
+                    fflush(stdin);
+                    // menu quebradooooooo
                     if (chute == '0') {
                         printf("Tem certeza que deseja encerrar? S/N\n");
                         scanf("%[^\n]c", &opcao_sair);
+                        fflush(stdin);
                         if (opcao_sair == 's' || opcao_sair == 'S') {
                             clrscr();
                             printf("Obrigado, encerrando...\n");
                             return 0;
+                        } else {
+                            printf("Chute uma letra 'a-z':\n");
+                            scanf("%c", &chute);
+                            getchar();
+                            fflush(stdin);
                         }
-                    }                
+                    }
                     short int testa_chute;
                     for (testa_chute = 0; testa_chute <= tamanho_palavra; testa_chute += 1) {
                         if (palavra[testa_chute] == chute) {
@@ -286,6 +302,7 @@ int main() {
                                 case 0:
                                     printf("Tem certeza que deseja encerrar? S/N\n");
                                     scanf("%[^\n]c", &opcao_sair);
+                                    fflush(stdin);
                                     if (opcao_sair == 's' || opcao_sair == 'S') {
                                         menu_desafio = 0;
                                         jogar = 0;
@@ -306,6 +323,7 @@ int main() {
                         printf("Deseja jogar novamente? S/N\n");
                         scanf("%[^\n]c", &opcao_sair);
                         getchar();
+                        fflush(stdin);
                         if (opcao_sair == 'n' || opcao_sair == 'N') {
                             jogar = 0;
                             clrscr();

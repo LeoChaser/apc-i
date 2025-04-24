@@ -13,28 +13,21 @@
 
 int main() {
     short int venceu = 0;
-    short int acertos = 0;
-    short int erros = 0;
-    short int max_erros;
-    short int tamanho_palavra = 0;
     short int menu_principal = 1;
-    char dificuldade;
+    char dificuldade = '1';
+    char opcao_sair = '0';
     short int desafio = 0;
-    char opcao_sair;
-    short int quant_chutes = 0;
 
     while (menu_principal) {
-        short int jogar;
         clrscr();
         printf("====================================== FORCA ======================================\n");
-        char opcao_menu_principal;
+        char opcao_menu_principal = '0';
         printf("Por obsequio, digite uma opcao:\n");
         printf("1 para jogar.\n");
         printf("0 para encerrar.\n");
-        scanf("%[^\n]c", &opcao_menu_principal);
+        scanf("%c", &opcao_menu_principal);
         getchar();
-        fflush(stdin);
-
+        short int jogar = 0;
         switch (opcao_menu_principal) {
             case '1':
                 jogar = 1;
@@ -42,8 +35,8 @@ int main() {
                 break;
             case '0':
                 printf("Tem certeza que deseja encerrar? S/N\n");
-                scanf("%[^\n]c", &opcao_sair);
-                fflush(stdin);
+                scanf("%c", &opcao_sair);
+                getchar();
                 if (opcao_sair == 's' || opcao_sair == 'S') {
                     menu_principal = 0;
                     jogar = 0;
@@ -60,33 +53,28 @@ int main() {
             clrscr();
             printf("====================================== FORCA ======================================\n");
             char nome[20] = "nometeste";
-
             do {
                 printf("Digite seu primeiro nome:\n");
                 scanf("%[^\n]s", nome);
                 getchar();
-                fflush(stdin);
             } while (strcmp(nome, "nometeste") == 0);
             printf("Bem-vindo, %s!\n", nome);
-            
+
             int dia = 99, mes = 99, ano = 9999;
             do {
                 printf("Que dia voce nasceu? Digite dois digitos: \n");
                 scanf("%i", &dia);
                 getchar();
-                fflush(stdin);
             } while (dia < 1 || dia > 31);
             do{
                 printf("Que mes voce nasceu? Digite dois digitos: \n");
                 scanf("%i", &mes);
                 getchar();
-                fflush(stdin);
             } while (mes < 1 || mes > 12);
             do {
                 printf("Que ano voce nasceu? Digite quatro digitos: \n");
                 scanf("%i", &ano);
                 getchar();
-                fflush(stdin);
             } while (ano < 1111 || ano > 2025);
 
             short int menu_dificuldade = 1;
@@ -99,9 +87,8 @@ int main() {
                 printf("3 para dificil.\n");
                 printf("0 para encerrar.\n");
 
-                scanf("%[^\n]c", &dificuldade);
+                scanf("%c", &dificuldade);
                 getchar();
-                fflush(stdin);
                 switch (dificuldade) {
                     case '1':
                         menu_dificuldade = 0;
@@ -114,8 +101,9 @@ int main() {
                         break;
                     case '0':
                         printf("Tem certeza que deseja encerrar? S/N\n");
-                        scanf("%[^\n]c", &opcao_sair);
-                        fflush(stdin);
+                        scanf("%c", &opcao_sair);
+                        getchar();
+
                         if (opcao_sair == 's' || opcao_sair == 'S') {
                             menu_dificuldade = 0;
                             jogar = 0;
@@ -135,15 +123,17 @@ int main() {
     
             // selecionar palavra aleatoriamente, de acordo com o tema
             char palavra[5] = "alala";
-            tamanho_palavra = 5;
-            max_erros = tamanho_palavra - 2;
+            int tamanho_palavra = 5;
+            short int max_erros = tamanho_palavra - 2;
             short int vivo = 1;
             short int acertou = 0;
             char chutes_certos[tamanho_palavra];
             for (short int i = 0; i < tamanho_palavra; i += 1) {
                 chutes_certos[i] = '_';
             }
-
+            short int acertos = 0;
+            short int erros = 0;
+            short int quant_chutes = 0;
             clrscr();
             while (vivo) {
                 char chute;
@@ -168,8 +158,7 @@ int main() {
                     printf("Chutes feitos:\n");
                     if (quant_chutes == 1) {
                         printf("\n%c\n", chutes[0]);
-                    }
-                    if (quant_chutes > 1) {
+                    } else if (quant_chutes > 1) {
                         printf("\n%c", chutes[0]);
                         for (i = 1; i < quant_chutes; i += 1) {
                             printf(" %c", chutes[i]);
@@ -201,12 +190,10 @@ int main() {
 
                     scanf("%c", &chute);
                     getchar();
-                    fflush(stdin);
-                    // menu quebradooooooo
-                    if (chute == '0') {
+                    while (chute == '0') {
                         printf("Tem certeza que deseja encerrar? S/N\n");
-                        scanf("%[^\n]c", &opcao_sair);
-                        fflush(stdin);
+                        scanf("%c", &opcao_sair);
+                        getchar();
                         if (opcao_sair == 's' || opcao_sair == 'S') {
                             clrscr();
                             printf("Obrigado, encerrando...\n");
@@ -215,7 +202,6 @@ int main() {
                             printf("Chute uma letra 'a-z':\n");
                             scanf("%c", &chute);
                             getchar();
-                            fflush(stdin);
                         }
                     }
                     short int testa_chute;
@@ -277,7 +263,6 @@ int main() {
                     quant_chutes = 0;
                     clrscr();
                     printf("====================================== FORCA ======================================\n");
-                    // procurar fflush fpurge
                     // tá mostrando o nomeeeeeeeeeeeeeee
                     printf("                   A resposta esta certa: %s!\n\n", palavra);
                     printf("                       =============================\n");
@@ -285,7 +270,7 @@ int main() {
                     printf("                      |      Voce venceu!!!  |      |\n");
                     printf("                      |                     / \\     |\n");
                     printf("                       =============================\n");
-                    // e possivel isso abaixo?
+
                     if (dificuldade == '3') {
                         short int menu_desafio = 1;
                         short int opcao_desafio;
@@ -301,11 +286,9 @@ int main() {
                                     break;
                                 case 0:
                                     printf("Tem certeza que deseja encerrar? S/N\n");
-                                    scanf("%[^\n]c", &opcao_sair);
-                                    fflush(stdin);
+                                    scanf("%c", &opcao_sair);
+                                    getchar();
                                     if (opcao_sair == 's' || opcao_sair == 'S') {
-                                        menu_desafio = 0;
-                                        jogar = 0;
                                         clrscr();
                                         printf("Obrigado, encerrando...\n");
                                         return 0;
@@ -315,22 +298,18 @@ int main() {
                                     printf("Por gentileza, digite uma opcao valida.\n");
                             }
                         }
-                        while (desafio) {
-                            // fazer o modo desafio
-                        }
-                        
                     } else {
                         printf("Deseja jogar novamente? S/N\n");
-                        scanf("%[^\n]c", &opcao_sair);
+                        scanf("%c", &opcao_sair);
                         getchar();
-                        fflush(stdin);
                         if (opcao_sair == 'n' || opcao_sair == 'N') {
-                            jogar = 0;
                             clrscr();
                             printf("Obrigado, encerrando...\n");
                             return 0;
+                        } else {
+                            venceu = 0;
+                            menu_principal = 1; // testar
                         }
-                        venceu = 0;
                     }
                 }
                 clrscr();
@@ -371,7 +350,18 @@ int main() {
             printf("                            `\%`@|     v        |@@\%\%@\%\%\%\%    - mfj\n");
             printf("                          .\%\%\%@@@|\%    |    \%\%\%\%\%\% @@@\%\%\%\%\%\%@\%\%\%\%\%\%\%\%\n");
             printf("                     _.\%\%\%\%\%\%@@@@@@\%\%_/\%\\_%@@\%\%\%\%@@@@@@@\%\%\%\%\%\%\%\%\%\%\%\%\%\%\n");
-            jogar = 0;
+
+            printf("Deseja jogar novamente? S/N\n");
+            scanf("%c", &opcao_sair);
+            getchar();
+            if (opcao_sair == 'n' || opcao_sair == 'N') {
+                clrscr();
+                printf("Obrigado, encerrando...\n");
+                return 0;
+            } else {
+                venceu = 0;
+                menu_principal = 1; // testar
+            }
         }
     }
     return 0;

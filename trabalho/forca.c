@@ -1,14 +1,10 @@
-#ifdef _WIN32
 #include <time.h> // para gerar o dia da morte e para o srand
 #include <stdio.h>
-#include <conio.h> // para uso do clrscr no Windows
 #include <string.h> // para uso do strcmp e strlen
-#include <stdlib.h> // para uso do srand
+#include <stdlib.h> // para uso do srand e system("cls")
+#ifdef _WIN32
+#define clrscr() system("cls")
 #else
-#include <time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #define clrscr() printf("\e[1;1H\e[2J")
 #endif
 

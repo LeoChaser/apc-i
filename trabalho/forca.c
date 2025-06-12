@@ -64,7 +64,7 @@ int main() {
     short int menu_principal = 1;
     short int menu_dificuldade = 0;
     short int menu_tema = 0;
-    while (menu_principal) {
+    while(menu_principal) {
         short int venceu = 0;
         short int vivo = 1;
         short int jogar = 0;
@@ -72,7 +72,7 @@ int main() {
         short int resultado_sair = 0;
         char nome[20] = "nometeste";
         int dia = 99, mes = 99, ano = 9999;
-        if (menu_dificuldade == 0) {
+        if(menu_dificuldade == 0) {
             do {
                 clrscr();
                 printf("====================================== FORCA ======================================\n");
@@ -82,7 +82,7 @@ int main() {
                 printf("1 para jogar.\n");
                 printf("0 para encerrar.\n");
                 resultado_menu_principal = scanf("%c%c", &opcao_menu_principal, &quebra);
-                switch (opcao_menu_principal) {
+                switch(opcao_menu_principal) {
                     case '1':
                         jogar = 1;
                         menu_principal = 0;
@@ -92,14 +92,14 @@ int main() {
                         resultado_menu_principal = 0;
                         do {
                             resultado_sair = scanf("%c%c", &opcao_sair, &quebra);
-                            if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
+                            if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
                                 clrscr();
                                 printf("Obrigado, encerrando...\n");
                                 return 0;
-                            } else if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
+                            } else if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
                                 break;
                             }
-                        } while (resultado_sair != 2 || quebra != '\n');
+                        } while(resultado_sair != 2 || quebra != '\n');
                         resultado_sair = 0;
                         break;
                     default:
@@ -107,12 +107,12 @@ int main() {
                         printf("Pressione ENTER para continuar.\n");
                         getchar();
                 }
-            } while (resultado_menu_principal != 2 || quebra != '\n');
+            } while(resultado_menu_principal != 2 || quebra != '\n');
         }
         short int menu_nome = 1;
         short int resultado_menu_novamente = 0;
-        while (jogar) {
-            if (vivo == 1 && menu_nome == 1) {
+        while(jogar) {
+            if(vivo == 1 && menu_nome == 1) {
                 menu_nome = 0;
                 clrscr();
                 printf("====================================== FORCA ======================================\n");
@@ -120,25 +120,25 @@ int main() {
                     printf("Digite seu primeiro nome:\n");
                     scanf("%[^\n]s", nome);
                     getchar();
-                } while (strcmp(nome, "nometeste") == 0); // caracteres especiais?
+                } while(strcmp(nome, "nometeste") == 0); // caracteres especiais?
                 printf("Bem-vindo, %s!\n", nome);
                 do {
                     printf("Que dia voce nasceu? Digite dois digitos: \n");
                     scanf("%i", &dia);
                     getchar();
-                } while (dia < 1 || dia > 31);
+                } while(dia < 1 || dia > 31);
                 do {
                     printf("Que mes voce nasceu? Digite dois digitos: \n");
                     scanf("%i", &mes);
                     getchar();
-                } while (mes < 1 || mes > 12);
+                } while(mes < 1 || mes > 12);
                 do {
                     printf("Que ano voce nasceu? Digite quatro digitos: \n");
                     scanf("%i", &ano);
                     getchar();
-                } while (ano < 1111 || ano > 2025);
+                } while(ano < 1111 || ano > 2025);
             }
-            if (venceu == 0 && vivo == 0 && fim == 1) { //  && venceu == 0 && modo_desafio_ativo == 0
+            if(venceu == 0 && vivo == 0 && fim == 1) { //  && venceu == 0 && modo_desafio_ativo == 0
                 clrscr();
                 printf("====================================== FORCA ======================================\n");
                 printf("                                 _____  _______\n");
@@ -151,11 +151,11 @@ int main() {
                 printf("                  _/                                   \\|     |\n");
                 printf("                 |                   %s\n", nome);
                 printf("                 |_____.-.______                ____/|________|\n");
-                if (dia < 10 && mes < 10) {
+                if(dia < 10 && mes < 10) {
                     printf("                                | * 0%i/0%i/%i |\n", dia, mes, ano);
-                } else if (dia < 10 && mes > 9) {
+                } else if(dia < 10 && mes > 9) {
                     printf("                                | * 0%i/%i/%i |\n", dia, mes, ano);
-                } else if (dia > 9 && mes < 10) {
+                } else if(dia > 9 && mes < 10) {
                     printf("                                | * %i/0%i/%i |\n", dia, mes, ano);
                 } else {
                     printf("                                | * %i/%i/%i |\n", dia, mes, ano);
@@ -176,11 +176,11 @@ int main() {
                 printf("Deseja jogar novamente? S/N\n");
                 resultado_menu_novamente = scanf("%c%c", &opcao_sair, &quebra);
                 do {
-                    if (opcao_sair == 'n' || opcao_sair == 'N') {
+                    if(opcao_sair == 'n' || opcao_sair == 'N') {
                         clrscr();
                         printf("Obrigado, encerrando...\n");
                         return 0;
-                    } else if (opcao_sair == 's' || opcao_sair == 'S') {
+                    } else if(opcao_sair == 's' || opcao_sair == 'S') {
                         jogar = 0;
                         menu_principal = 1; // testar
                         menu_dificuldade = 0;
@@ -191,14 +191,15 @@ int main() {
                         printf("Pressione ENTER para continuar.\n");
                         getchar();
                     }
-                } while (resultado_menu_novamente != 2 && quebra != '\n');
+                } while(resultado_menu_novamente != 2 && quebra != '\n');
             }
             menu_dificuldade = 1;
             short int max_erros = 4;
             short int posicao_dificuldade = 1;
             short int resultado_menu_dificuldade = 0; // testar
+            char tema = '1';
             do {
-                if (modo_desafio_ativo){
+                if(modo_desafio_ativo) {
                     menu_dificuldade = 0;
                     break;
                 }
@@ -211,7 +212,7 @@ int main() {
                     printf("d para dificil.\n");
                     printf("0 para encerrar.\n");
                     resultado_menu_dificuldade = scanf("%c%c", &dificuldade, &quebra);
-                    switch (dificuldade) {
+                    switch(dificuldade) {
                         case 'f':
                             mostrar_dificuldade = "facil";
                             posicao_dificuldade = 0;
@@ -234,14 +235,14 @@ int main() {
                             resultado_menu_dificuldade = 0;
                             do {
                                 resultado_sair = scanf("%c%c", &opcao_sair, &quebra);
-                                if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
+                                if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
                                     clrscr();
                                     printf("Obrigado, encerrando...\n");
                                     return 0;
-                                } else if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
+                                } else if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
                                     break;
                                 }
-                            } while (resultado_sair != 2 || quebra != '\n');
+                            } while(resultado_sair != 2 || quebra != '\n');
                             resultado_sair = 0;
                             break;
                         default:
@@ -249,17 +250,19 @@ int main() {
                             printf("Pressione ENTER para continuar.\n");
                             getchar();
                     }
-                } while (resultado_menu_dificuldade != 2 || quebra != '\n');
-            } while (menu_dificuldade);
+                } while(resultado_menu_dificuldade != 2 || quebra != '\n');
+            } while(menu_dificuldade);
 
-            menu_tema = 1;
+            if(modo_desafio_ativo) {
+                menu_tema = 0;
+                break;
+            } else {
+                menu_tema = 1;
+                tema = '1';
+            }
             short int resultado_menu_tema = 0;
-            char tema = '1';
+
             do {
-                if (modo_desafio_ativo) {
-                    menu_tema = 0;
-                    break;
-                }
                 do {
                     clrscr();
                     printf("====================================== FORCA ======================================\n");
@@ -271,7 +274,7 @@ int main() {
                     tema = '1';
                     int aleatorio = rand() % 5;
                     resultado_menu_tema = scanf("%c%c", &tema, &quebra);
-                    switch (tema) {
+                    switch(tema) {
                         case 'a':
                             palavra = animais[posicao_dificuldade][aleatorio];
                             dica = dicas_animais[posicao_dificuldade][aleatorio];
@@ -295,14 +298,14 @@ int main() {
                             resultado_menu_tema = 0;
                             do {
                                 resultado_sair = scanf("%c%c", &opcao_sair, &quebra);
-                                if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
+                                if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
                                     clrscr();
                                     printf("Obrigado, encerrando...\n");
                                     return 0;
-                                } else if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
+                                } else if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
                                     break;
                                 }
-                            } while (resultado_sair != 2 || quebra != '\n');
+                            } while(resultado_sair != 2 || quebra != '\n');
                             resultado_sair = 0;
                             break;
                         default:
@@ -310,25 +313,29 @@ int main() {
                             printf("Pressione ENTER para continuar.\n");
                             getchar();
                     }
-                } while (resultado_menu_tema != 2 || quebra != '\n');
-            } while (menu_tema);
-            if (modo_desafio_ativo) {
-                if (tema == 'a') {
-                    palavra = desafio_animais;
-                    dica = dica_desafio_animais;
-                } else if (tema == 'c') {
-                    palavra = desafio_caes;
-                    dica = dica_desafio_caes;
-                } else if (tema == 'f') {
-                    palavra = desafio_frutas;
-                    dica = dica_desafio_frutas;
+                } while(resultado_menu_tema != 2 || quebra != '\n');
+            } while(menu_tema);
+            if(modo_desafio_ativo) {
+                switch(tema) {
+                    case 'a':
+                        palavra = desafio_animais;
+                        dica = dica_desafio_animais;
+                        break;
+                    case 'f':
+                        palavra = desafio_frutas;
+                        dica = dica_desafio_frutas;
+                        break;
+                    case 'c':
+                        palavra = desafio_caes;
+                        dica = dica_desafio_caes;
+                        break;
                 }
             }
             int tamanho_palavra = strlen(palavra);
             short int acertou = 0;
 
             char chutes_certos[tamanho_palavra];
-            for (short int i = 0; i < tamanho_palavra; i += 1) {
+            for(short int i = 0; i < tamanho_palavra; i += 1) {
                 chutes_certos[i] = '_';
             }
             short int acertos = 0;
@@ -336,12 +343,12 @@ int main() {
             short int quant_chutes = 0;
             clrscr();
             vivo = 1;
-            while (vivo) {
+            while(vivo) {
                 char chute;
                 char chutes[max_erros];
-                if (acertos < tamanho_palavra) {
+                if(acertos < tamanho_palavra) {
                     printf("====================================== FORCA ======================================\n");
-                    if (modo_desafio_ativo) {
+                    if(modo_desafio_ativo) {
                         printf("Dificuldade: DESAFIO; Tema: %s.\n\n\n", mostrar_tema);
                     } else {
                         printf("Dificuldade: %s; Tema: %s.\n\n\n", mostrar_dificuldade, mostrar_tema);
@@ -350,8 +357,8 @@ int main() {
                     printf("0 para encerrar.\n");
                     printf("Palavra:\n");
                     short int i;
-                    for (i = 0; i < tamanho_palavra; i += 1) {
-                        if (chutes_certos[i]) {
+                    for(i = 0; i < tamanho_palavra; i += 1) {
+                        if(chutes_certos[i]) {
                             printf("%c ", chutes_certos[i]);
                         } else {
                             printf("_ ");
@@ -359,7 +366,7 @@ int main() {
                     }
                     printf("\n\n");
                     printf("Chutes restantes: %i!\n\n", max_erros - erros);
-                    if (max_erros - erros <= 2) {
+                    if(max_erros - erros <= 2) {
                         printf("Dica: %s!\n", dica);
                     } else {
                         printf("\n");
@@ -367,19 +374,19 @@ int main() {
                     acertou = 0;
 
                     printf("Chutes feitos:\n");
-                    if (quant_chutes == 0) {
+                    if(quant_chutes == 0) {
                         printf("\n\n\n");
-                    } else if (quant_chutes == 1) {
+                    } else if(quant_chutes == 1) {
                         printf("\n%c\n\n", chutes[0]);
-                    } else if (quant_chutes > 1) {
+                    } else if(quant_chutes > 1) {
                         printf("\n%c", chutes[0]);
-                        for (i = 1; i < quant_chutes; i += 1) {
+                        for(i = 1; i < quant_chutes; i += 1) {
                             printf(" %c", chutes[i]);
                         }
                         printf("\n\n");
                     }
                     
-                    if (erros == max_erros) {
+                    if(erros == max_erros) {
                         printf("______\n");
                         printf("|    :\n");
                         printf("|    O\n");
@@ -408,26 +415,26 @@ int main() {
 
                     scanf("%c", &chute);
                     getchar();
-                    while (chute == '0') {
+                    while(chute == '0') {
                         printf("Tem certeza que deseja encerrar? S/N\n");
                         do {
                             resultado_sair = scanf("%c%c", &opcao_sair, &quebra);
-                            if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
+                            if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
                                 clrscr();
                                 printf("Obrigado, encerrando...\n");
                                 return 0;
-                            } else if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
+                            } else if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
                                 printf("Chute uma letra minuscula (a-z):\n");
                                 scanf("%c", &chute);
                                 getchar();
                                 break;
                             }
-                        } while (resultado_sair != 2 || quebra != '\n');
+                        } while(resultado_sair != 2 || quebra != '\n');
                         resultado_sair = 0;
                     }
                     short int testa_chute;
-                    for (testa_chute = 0; testa_chute <= tamanho_palavra; testa_chute += 1) {
-                        if (palavra[testa_chute] == chute) {
+                    for(testa_chute = 0; testa_chute <= tamanho_palavra; testa_chute += 1) {
+                        if(palavra[testa_chute] == chute) {
                             acertou = 1;
                             ++acertos;
                             chutes_certos[testa_chute] = chute;
@@ -435,20 +442,20 @@ int main() {
                     }
                     chutes[quant_chutes] = chute;
                     ++quant_chutes;
-                    if (acertou == 0) {
+                    if(acertou == 0) {
                         ++erros;
                     }
                 } else {
                     printf("====================================== FORCA ======================================\n");
-                    if (modo_desafio_ativo) {
+                    if(modo_desafio_ativo) {
                         printf("Dificuldade: DESAFIO; Tema: %s.\n\n\n", mostrar_tema);
                     } else {
                         printf("Dificuldade: %s; Tema: %s.\n\n\n", mostrar_dificuldade, mostrar_tema);
                     }
                     printf("Palavra:\n");
                     short int i;
-                    for (i = 0; i < tamanho_palavra; i += 1) {
-                        if (chutes_certos[i]) {
+                    for(i = 0; i < tamanho_palavra; i += 1) {
+                        if(chutes_certos[i]) {
                             printf("%c ", chutes_certos[i]);
                             chutes_certos[i] = '_';
                         } else {
@@ -459,12 +466,12 @@ int main() {
                     printf("Chutes restantes: %i!\n\n", max_erros - erros);
 
                     acertou = 0;
-                    if (quant_chutes == 1) {
+                    if(quant_chutes == 1) {
                         printf("\n%c\n", chutes[0]);
                     }
-                    if (quant_chutes > 1) {
+                    if(quant_chutes > 1) {
                         printf("\n%c", chutes[0]);
-                        for (i = 1; i < quant_chutes; i += 1) {
+                        for(i = 1; i < quant_chutes; i += 1) {
                             printf(" - %c", chutes[i]);
                         }
                         printf("\n\n");
@@ -480,7 +487,7 @@ int main() {
                     printf("Pressione ENTER para continuar!\n");
                     getchar();
                 }
-                if (venceu) {
+                if(venceu) {
                     erros = 0;
                     venceu = 0;
                     acertos = 0;
@@ -495,7 +502,7 @@ int main() {
                     printf("                      |                     / \\     |\n");
                     printf("                       =============================\n");
 
-                    if (dificuldade == 'd' && modo_desafio_ativo == 0) {
+                    if(dificuldade == 'd' && modo_desafio_ativo == 0) {
                         short int menu_desafio = 1;
                         short int resultado_menu_desafio = 0;
                         printf("Voce desbloqueou o modo desafio!\n");
@@ -505,7 +512,7 @@ int main() {
                                 printf("d para jogar o modo desafio!\n");
                                 printf("0 para sair...\n");
                                 resultado_menu_desafio = scanf("%c%c", &desafio, &quebra);
-                                switch (desafio) {
+                                switch(desafio) {
                                     case 'd':
                                         modo_desafio_ativo = 1;
                                         menu_desafio = 0;
@@ -516,14 +523,14 @@ int main() {
                                         printf("Tem certeza que deseja encerrar? S/N\n");
                                         do {
                                             resultado_sair = scanf("%c%c", &opcao_sair, &quebra);
-                                            if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
+                                            if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 's' || opcao_sair == 'S') {
                                                 clrscr();
                                                 printf("Obrigado, encerrando...\n");
                                                 return 0;
-                                            } else if (resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
+                                            } else if(resultado_sair == 2 && quebra == '\n' && opcao_sair == 'n' || opcao_sair == 'N') {
                                                 break;
                                             }
-                                        } while (resultado_sair != 2 || quebra != '\n');
+                                        } while(resultado_sair != 2 || quebra != '\n');
                                         resultado_sair = 0;
                                         break;
                                     default:
@@ -531,18 +538,18 @@ int main() {
                                         printf("Pressione ENTER para continuar.\n");
                                         getchar();
                                 }
-                            } while (resultado_menu_desafio != 2 || quebra != '\n');
-                        } while (menu_desafio);
+                            } while(resultado_menu_desafio != 2 || quebra != '\n');
+                        } while(menu_desafio);
                     } else {
                         printf("Deseja jogar novamente? S/N\n");
                         char opcao_jogar_novamente = '0';
                         do {
                             resultado_menu_novamente = scanf("%c%c", &opcao_jogar_novamente, &quebra);
-                            if (opcao_jogar_novamente == 'n' || opcao_jogar_novamente == 'N') {
+                            if(opcao_jogar_novamente == 'n' || opcao_jogar_novamente == 'N') {
                                 clrscr();
                                 printf("Obrigado, encerrando...\n");
                                 return 0;
-                            } else if (opcao_jogar_novamente == 's' || opcao_jogar_novamente == 'S') {
+                            } else if(opcao_jogar_novamente == 's' || opcao_jogar_novamente == 'S') {
                                 printf("Selecione uma opcao:\n");
                                 printf("t para trocar dificuldade e tema.\n");
                                 printf("m para menu principal (novo participante).\n");
@@ -550,7 +557,7 @@ int main() {
                                 short int resultado_menu_vencedor = scanf("%c%c", &opcao_menu_vencedor, &quebra);
                                 do {
                                     vivo = 0;
-                                    switch (opcao_menu_vencedor) {
+                                    switch(opcao_menu_vencedor) {
                                         case 't':
                                             menu_nome = 0;
                                             menu_dificuldade = 1;
@@ -565,13 +572,13 @@ int main() {
                                             printf("Pressione ENTER para continuar.\n");
                                             getchar();
                                     }
-                                } while (resultado_menu_vencedor != 2 || quebra != '\n');
+                                } while(resultado_menu_vencedor != 2 || quebra != '\n');
                             } else {
                                 printf("Por gentileza, digite uma opcao valida.\n");
                                 printf("Pressione ENTER para continuar.\n");
                                 getchar();
                             }
-                        } while (resultado_menu_novamente != 2 || quebra != '\n');
+                        } while(resultado_menu_novamente != 2 || quebra != '\n');
                     }
                 }
                 clrscr();

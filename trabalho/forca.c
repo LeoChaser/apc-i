@@ -80,7 +80,7 @@ int main() {
         struct pessoa_t pessoa;
         // char nome[20] = "nometeste";
         // int dia = 99, mes = 99, ano = 9999;
-        if(menu_dificuldade == 0) {
+        if(menu_principal) {
             do {
                 clrscr();
                 printf("====================================== FORCA ======================================\n");
@@ -93,7 +93,6 @@ int main() {
                 switch(opcao_menu_principal) {
                     case '1':
                         jogar = 1;
-                        menu_principal = 0;
                         break;
                     case '0':
                         printf("Poxa... Tem certeza que deseja encerrar? S/N\n");
@@ -532,6 +531,7 @@ int main() {
                                 switch(desafio) {
                                     case 'd':
                                         modo_desafio_ativo = 1;
+                                        menu_principal = 0;
                                         menu_desafio = 0;
                                         vivo = 0;
                                         break;
